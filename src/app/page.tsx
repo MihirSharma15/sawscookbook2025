@@ -1,3 +1,4 @@
+import { RecipeCard } from "@/components/recipe-card";
 import { ModeToggle } from "@/components/toggle";
 import { Button } from "@/components/ui/button";
 import { ExternalLinkIcon, InstagramIcon, LocateIcon, MapPin, Pin } from "lucide-react";
@@ -43,8 +44,10 @@ export default function Home() {
         </div>
         
       </div>
-
+      <div className="w-full h-1 my-12">
+      </div>
       {/* Cards go here */}
+      <RecipeCard />
     </div>
   );
 }

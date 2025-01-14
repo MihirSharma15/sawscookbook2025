@@ -1,8 +1,32 @@
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card"
 
+import { Badge } from "./ui/badge";
 
-export function recipeCard() {
+export function RecipeCard() {
 
     return (
-        <h1>hi</h1>
+        <Card className="min-w-96 max-w-fit">
+            <CardHeader>
+                <CardTitle>Curry Tikka Chicken</CardTitle>
+                <CardDescription>
+                    <Badge variant="outline">Vegetarian</Badge>
+                    <Badge variant="outline">Heart Healthy</Badge>
+                    <Badge variant="outline">One Pot</Badge>
+                </CardDescription>
+            </CardHeader>
+            <CardContent>
+                <p>Card Content</p>
+            </CardContent>
+            <CardFooter>
+                <p>Card Footer</p>
+            </CardFooter>
+        </Card>
     );
 }
