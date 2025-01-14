@@ -22,7 +22,7 @@ export function RecipeCard() {
                 </CardDescription>
             </CardHeader>
             <CardContent>
-                <p>Card Content</p>
+                <img />
             </CardContent>
             <CardFooter>
                 <p>Card Footer</p>
