@@ -1,6 +1,8 @@
+"use client"
 import { RecipeCard } from "@/components/recipe-card";
 import { ModeToggle } from "@/components/toggle";
 import { Button } from "@/components/ui/button";
+import { motion } from "motion/react";
 import { ExternalLinkIcon, InstagramIcon, LocateIcon, MapPin, Pin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +10,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     // Main Home Page
-    <div className="flex flex-col py-4 w-full min-h-[100vh] scroll-m-0">
+    <div className="flex flex-col py-4  w-full min-h-[100vh] scroll-m-0">
       {/* top bar */}
       <div className="flex flex-row px-4 items-start justify-between">
         {/* SAWS + Chapel Hill, NC */}
@@ -48,6 +50,7 @@ export default function Home() {
       </div>
       {/* Cards go here */}
       <RecipeCard />
+      
     </div>
   );
 }
