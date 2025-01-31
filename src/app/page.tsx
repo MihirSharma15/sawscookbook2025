@@ -6,6 +6,7 @@ import { motion } from "motion/react";
 import { ExternalLinkIcon, InstagramIcon, LocateIcon, MapPin, Pin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Input } from "@/components/ui/input";
 
 export default function Home() {
   return (
@@ -46,7 +47,12 @@ export default function Home() {
         </div>
         
       </div>
-      <div className="w-full h-1 py-4">
+      {/* Search bar */}
+      <div className="flex flex-row items-center justify-center p-4">
+        <Input type="email" id="email" placeholder="Search Recipes" />
+      </div>
+      {/* recipe cards */}
+      <div className="w-full h-1 p-4">
         <RecipeCard />
       </div>
       

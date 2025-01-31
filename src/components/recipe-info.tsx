@@ -20,18 +20,18 @@ export function RecipeDialog() {
                 <ArrowUpRight />
             </Button>
         </DialogTrigger>
-        <DialogContent className="w-full h-5/6 overflow-auto">
+        <DialogContent className="sm:max-w-full lg:max-w-fit h-5/6 overflow-auto">
             <ScrollArea className="">
                 
                 <DialogHeader>
-                        <DialogTitle className="scroll-m-20 text-4xl font-extrabold tracking-tight">Curry Chicken Tikka</DialogTitle>
+                        <DialogTitle className="scroll-m-20 text-3xl font-extrabold tracking-tight">Curry Chicken Tikka</DialogTitle>
                     <DialogDescription className="py-2 space-x-2">
                         <Badge variant="outline">Vegetarian</Badge>
                         <Badge variant="outline">Heart Healthy</Badge>
                         <Badge variant="outline">One Pot</Badge>
                     </DialogDescription>
                     {/* quick stats */}
-                    <div className="flex flex-row items-center justify-start min-w-2/5 max-w-fit h-fit rounded-md px-2 space-x-3">
+                    <div className="flex flex-row items-center justify-center min-w-2/5 max-w-fit h-fit rounded-md px-2 space-x-3">
                         <div className="flex flex-row space-x-1 items-center">
                             <Clock size={16}/>
                             <p className="text-sm italic">15 Minutes</p>
@@ -57,13 +57,13 @@ export function RecipeDialog() {
                 <img
                         src="chicken-tikka-image.jpg"
                         alt="Curry Tikka Chicken"
-                        className="h-48 w-full object-cover rounded-lg"
+                        className="h-48 w-full object-cover rounde=d-lg"
                 />
-                <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+                <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight py-4">
                     Cooking Instructions
                 </h2>
                 {/* cooking instructions go here */}
-                <p className="leading-7 [&:not(:first-child)]:mt-6">
+                <p className="leading-7">
                         Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra lacus placerat dictum pulvinar risus laoreet. Lectus tempus curabitur mattis risus nulla posuere. Inceptos vestibulum morbi facilisi interdum habitasse proin dolor potenti. Natoque curabitur morbi sagittis elementum, porttitor ante lacinia primis. Dignissim conubia habitasse eget aliquet metus himenaeos per. Nascetur egestas litora a primis cubilia semper id.
     
                         Ac malesuada penatibus vehicula hac aliquam morbi. Adipiscing quisque purus risus per blandit facilisis himenaeos tortor mattis! Mi primis primis odio, mauris magna dignissim purus blandit. Eget quisque platea proin; erat neque blandit. Est ex est nibh neque dignissim varius. Nunc nostra himenaeos potenti congue velit aliquam sem lectus. Turpis sapien odio neque lacus mauris malesuada elit per varius.
