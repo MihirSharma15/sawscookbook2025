@@ -46,10 +46,10 @@ export default function Home() {
         </div>
         
       </div>
-      <div className="w-full h-1 my-12">
+      <div className="w-full h-1 py-4">
+        <RecipeCard />
       </div>
-      {/* Cards go here */}
-      <RecipeCard />
+      
       
     </div>
   );
