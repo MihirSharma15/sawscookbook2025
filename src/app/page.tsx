@@ -48,8 +48,8 @@ export default function Home() {
         
       </div>
       {/* Search bar */}
-      <div className="flex flex-row items-center justify-center p-4">
-        <Input type="email" id="email" placeholder="Search Recipes" />
+      <div className="flex flex-row items-center justify-center p-4 w-full">
+        <Input type="search" id="search" placeholder="Search Recipes" />
       </div>
       {/* recipe cards */}
       <div className="w-full h-1 p-4">

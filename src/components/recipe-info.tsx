@@ -60,9 +60,27 @@ export function RecipeDialog() {
                         className="h-48 w-full object-cover rounde=d-lg"
                 />
                 <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight py-4">
+                    Ingredients
+                </h2>
+                {/* Ingredient instructions go here */}
+                <p className="leading-7">
+                        Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra lacus placerat dictum pulvinar risus laoreet. Lectus tempus curabitur mattis risus nulla posuere. Inceptos vestibulum morbi facilisi interdum habitasse proin dolor potenti. Natoque curabitur morbi sagittis elementum, porttitor ante lacinia primis. Dignissim conubia habitasse eget aliquet metus himenaeos per. Nascetur egestas litora a primis cubilia semper id.
+    
+                        Ac malesuada penatibus vehicula hac aliquam morbi. Adipiscing quisque purus risus per blandit facilisis himenaeos tortor mattis! Mi primis primis odio, mauris magna dignissim purus blandit. Eget quisque platea proin; erat neque blandit. Est ex est nibh neque dignissim varius. Nunc nostra himenaeos potenti congue velit aliquam sem lectus. Turpis sapien odio neque lacus mauris malesuada elit per varius.
+                </p>
+                <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight py-4">
                     Cooking Instructions
                 </h2>
-                {/* cooking instructions go here */}
+                {/* Cooking instructions go here */}
+                <p className="leading-7">
+                        Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra lacus placerat dictum pulvinar risus laoreet. Lectus tempus curabitur mattis risus nulla posuere. Inceptos vestibulum morbi facilisi interdum habitasse proin dolor potenti. Natoque curabitur morbi sagittis elementum, porttitor ante lacinia primis. Dignissim conubia habitasse eget aliquet metus himenaeos per. Nascetur egestas litora a primis cubilia semper id.
+    
+                        Ac malesuada penatibus vehicula hac aliquam morbi. Adipiscing quisque purus risus per blandit facilisis himenaeos tortor mattis! Mi primis primis odio, mauris magna dignissim purus blandit. Eget quisque platea proin; erat neque blandit. Est ex est nibh neque dignissim varius. Nunc nostra himenaeos potenti congue velit aliquam sem lectus. Turpis sapien odio neque lacus mauris malesuada elit per varius.
+                </p>
+                <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight py-4">
+                    Notes
+                </h2>
+                {/* notes go here */}
                 <p className="leading-7">
                         Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra lacus placerat dictum pulvinar risus laoreet. Lectus tempus curabitur mattis risus nulla posuere. Inceptos vestibulum morbi facilisi interdum habitasse proin dolor potenti. Natoque curabitur morbi sagittis elementum, porttitor ante lacinia primis. Dignissim conubia habitasse eget aliquet metus himenaeos per. Nascetur egestas litora a primis cubilia semper id.
     
