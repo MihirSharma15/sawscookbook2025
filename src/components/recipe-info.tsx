@@ -7,11 +7,16 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from "./ui/button"
-import { ArrowUpRight, Clock, ExternalLink, GroupIcon, Link, Users } from "lucide-react"
+import { ArrowUpRight, Clock, ExternalLink, DollarSign, ChefHat, Users, UtensilsCrossed, Leaf, Package, HeartPulse } from "lucide-react"
 import { Badge } from "./ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { Recipe } from "@/types/recipe";
 
-export function RecipeDialog() {
+interface RecipeDialogProps {
+    recipe: Recipe;
+}
+
+export function RecipeDialog({ recipe }: RecipeDialogProps) {
     return (
     <Dialog>
         <DialogTrigger asChild>
@@ -20,78 +25,139 @@ export function RecipeDialog() {
                 <ArrowUpRight />
             </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-full lg:max-w-fit h-5/6 overflow-auto">
-            <ScrollArea className="">
+        <DialogContent className="sm:max-w-full lg:max-w-3xl h-5/6 overflow-auto">
+            <ScrollArea className="pr-4">
                 
                 <DialogHeader>
-                        <DialogTitle className="scroll-m-20 text-3xl font-extrabold tracking-tight">Curry Chicken Tikka</DialogTitle>
-                    <DialogDescription className="py-2 space-x-2">
-                        <Badge variant="outline">Vegetarian</Badge>
-                        <Badge variant="outline">Heart Healthy</Badge>
-                        <Badge variant="outline">One Pot</Badge>
+                    <DialogTitle className="scroll-m-20 text-3xl font-extrabold tracking-tight">
+                        {recipe.title}
+                    </DialogTitle>
+                    <p className="text-sm text-muted-foreground">
+                        Submitted by {recipe.submittedBy} {recipe.submissionDate && `on ${recipe.submissionDate}`}
+                    </p>
+                    <DialogDescription className="py-2 flex flex-wrap gap-2">
+                        {recipe.tags.map((tag, index) => (
+                            <Badge key={index} variant="outline">{tag}</Badge>
+                        ))}
                     </DialogDescription>
                     {/* quick stats */}
-                    <div className="flex flex-row items-center justify-center min-w-2/5 max-w-fit h-fit rounded-md px-2 space-x-3">
-                        <div className="flex flex-row space-x-1 items-center">
+                    <div className="flex flex-wrap items-center gap-4 py-2">
+                        <div className="flex flex-row gap-1 items-center">
                             <Clock size={16}/>
-                            <p className="text-sm italic">15 Minutes</p>
+                            <p className="text-sm italic">{recipe.cookingTime}</p>
                         </div>
-                        <div className="flex flex-row space-x-1 items-center">
+                        <div className="flex flex-row gap-1 items-center">
+                            <DollarSign size={16} />
+                            <p className="text-sm italic">{recipe.budget}</p>
+                        </div>
+                        <div className="flex flex-row gap-1 items-center">
+                            <ChefHat size={16} />
+                            <p className="text-sm italic">{recipe.difficulty}</p>
+                        </div>
+                        <div className="flex flex-row gap-1 items-center">
                             <Users size={16} />
-                            <p className="text-sm italic">2-3</p>
+                            <p className="text-sm italic">Varies</p>
                         </div>
-                        <div className="flex flex-row space-x-1 items-center">
-                            <ExternalLink size={16} />
-                            <a className="text-sm italic" href="https://www.Example.com" target="_blank"
-                                rel="noopener noreferrer">
-                                Article
-                            </a>
-                        </div>
+                        {recipe.sourceUrl && (
+                            <div className="flex flex-row gap-1 items-center">
+                                <ExternalLink size={16} />
+                                <a 
+                                    className="text-sm italic hover:underline" 
+                                    href={recipe.sourceUrl} 
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Source
+                                </a>
+                            </div>
+                        )}
                     </div>
-    
-    
                 </DialogHeader>
-                <p className="text-sm italic my-2">
-                    This is a delicious recipe for curry chicken tikka. It is a simple recipe that can be made in under 15 minutes.
+
+                {/* Description */}
+                <p className="text-sm italic my-4">
+                    {recipe.description}
                 </p>
-                <img
-                        src="chicken-tikka-image.jpg"
-                        alt="Curry Tikka Chicken"
-                        className="h-48 w-full object-cover rounde=d-lg"
-                />
-                <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight py-4">
+
+                {/* Image */}
+                {recipe.imageUrl ? (
+                    <img
+                        src={recipe.imageUrl}
+                        alt={recipe.title}
+                        className="h-64 w-full object-cover rounded-lg"
+                    />
+                ) : (
+                    <div className="h-48 w-full rounded-lg bg-muted flex flex-col items-center justify-center text-muted-foreground">
+                        <UtensilsCrossed size={48} strokeWidth={1} />
+                        <span className="mt-2 text-sm">No image available</span>
+                    </div>
+                )}
+
+                {/* Ingredients */}
+                <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight py-4 flex items-center gap-2">
+                    <UtensilsCrossed size={24} />
                     Ingredients
                 </h2>
-                {/* Ingredient instructions go here */}
-                <p className="leading-7">
-                        Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra lacus placerat dictum pulvinar risus laoreet. Lectus tempus curabitur mattis risus nulla posuere. Inceptos vestibulum morbi facilisi interdum habitasse proin dolor potenti. Natoque curabitur morbi sagittis elementum, porttitor ante lacinia primis. Dignissim conubia habitasse eget aliquet metus himenaeos per. Nascetur egestas litora a primis cubilia semper id.
-    
-                        Ac malesuada penatibus vehicula hac aliquam morbi. Adipiscing quisque purus risus per blandit facilisis himenaeos tortor mattis! Mi primis primis odio, mauris magna dignissim purus blandit. Eget quisque platea proin; erat neque blandit. Est ex est nibh neque dignissim varius. Nunc nostra himenaeos potenti congue velit aliquam sem lectus. Turpis sapien odio neque lacus mauris malesuada elit per varius.
-                </p>
-                <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight py-4">
+                <pre className="leading-7 whitespace-pre-wrap font-sans text-sm bg-muted p-4 rounded-lg">
+                    {recipe.ingredients}
+                </pre>
+
+                {/* Cooking Instructions */}
+                <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight py-4 flex items-center gap-2">
+                    <ChefHat size={24} />
                     Cooking Instructions
                 </h2>
-                {/* Cooking instructions go here */}
-                <p className="leading-7">
-                        Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra lacus placerat dictum pulvinar risus laoreet. Lectus tempus curabitur mattis risus nulla posuere. Inceptos vestibulum morbi facilisi interdum habitasse proin dolor potenti. Natoque curabitur morbi sagittis elementum, porttitor ante lacinia primis. Dignissim conubia habitasse eget aliquet metus himenaeos per. Nascetur egestas litora a primis cubilia semper id.
-    
-                        Ac malesuada penatibus vehicula hac aliquam morbi. Adipiscing quisque purus risus per blandit facilisis himenaeos tortor mattis! Mi primis primis odio, mauris magna dignissim purus blandit. Eget quisque platea proin; erat neque blandit. Est ex est nibh neque dignissim varius. Nunc nostra himenaeos potenti congue velit aliquam sem lectus. Turpis sapien odio neque lacus mauris malesuada elit per varius.
-                </p>
-                <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight py-4">
-                    Notes
-                </h2>
-                {/* notes go here */}
-                <p className="leading-7">
-                        Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra lacus placerat dictum pulvinar risus laoreet. Lectus tempus curabitur mattis risus nulla posuere. Inceptos vestibulum morbi facilisi interdum habitasse proin dolor potenti. Natoque curabitur morbi sagittis elementum, porttitor ante lacinia primis. Dignissim conubia habitasse eget aliquet metus himenaeos per. Nascetur egestas litora a primis cubilia semper id.
-    
-                        Ac malesuada penatibus vehicula hac aliquam morbi. Adipiscing quisque purus risus per blandit facilisis himenaeos tortor mattis! Mi primis primis odio, mauris magna dignissim purus blandit. Eget quisque platea proin; erat neque blandit. Est ex est nibh neque dignissim varius. Nunc nostra himenaeos potenti congue velit aliquam sem lectus. Turpis sapien odio neque lacus mauris malesuada elit per varius.
-                </p>
-                
-    
+                <pre className="leading-7 whitespace-pre-wrap font-sans text-sm">
+                    {recipe.instructions}
+                </pre>
+
+                {/* Nutrition Info */}
+                {recipe.nutritionInfo && (
+                    <>
+                        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight py-4 flex items-center gap-2">
+                            <Leaf size={24} />
+                            Nutrition Information
+                        </h2>
+                        <pre className="leading-7 whitespace-pre-wrap font-sans text-sm bg-muted p-4 rounded-lg">
+                            {recipe.nutritionInfo}
+                        </pre>
+                    </>
+                )}
+
+                {/* Storage Info */}
+                {recipe.storageInfo && (
+                    <>
+                        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight py-4 flex items-center gap-2">
+                            <Package size={24} />
+                            Storage Information
+                        </h2>
+                        <p className="leading-7 text-sm">
+                            {recipe.storageInfo}
+                        </p>
+                    </>
+                )}
+
+                {/* Health Benefits */}
+                {recipe.healthBenefits && (
+                    <>
+                        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight py-4 flex items-center gap-2">
+                            <HeartPulse size={24} />
+                            Health Benefits
+                        </h2>
+                        <p className="leading-7 text-sm">
+                            {recipe.healthBenefits}
+                        </p>
+                    </>
+                )}
+
+                {/* Category */}
+                <div className="mt-6 pt-4 border-t">
+                    <p className="text-sm text-muted-foreground">
+                        <span className="font-medium">Category:</span> {recipe.category}
+                    </p>
+                </div>
             </ScrollArea>
         </DialogContent>
     </Dialog>
     );
-
-
 }
